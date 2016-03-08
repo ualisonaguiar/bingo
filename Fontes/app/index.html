@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="bingoApp">
+    <head>
+        <title>Bingo</title>
+        <!-- Incluindo boostrap -->
+        <link rel="stylesheet" href="content/css/bootstrap/bootstrap-3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="content/css/bootstrap/bootstrap-3.3.6/css/bootstrap-theme.min.css">
+        <!-- Incluindo angular -->
+        <script src="content/js/angular/v1.5.0/angular.min.js"></script>
+        <script src="content/js/angular/v1.5.0/angular-route.min.js"></script>       
+        <!-- Incluindo script padrao -->
+        <script src="content/js/script.js"></script>
+        <script type="text/javascript" src="content/js/module/index/PesquisaBingoController.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Bingo</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#inicial"><i class="fa fa-home"></i>Listagem</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+    </body>
+</html>

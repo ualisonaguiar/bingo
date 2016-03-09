@@ -1,8 +1,7 @@
 var bingoApp = angular.module('bingoApp', ['ngRoute']);
 
 bingoApp.config(function($routeProvider) {
-    $routeProvider
-    .when('/', {
+    $routeProvider.when('/', {
         templateUrl : 'module/index/listagem.html',
         controller  : 'PesquisaBingoController'
     })

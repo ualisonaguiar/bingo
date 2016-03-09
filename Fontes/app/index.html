@@ -10,7 +10,9 @@
         <script src="content/js/angular/v1.5.0/angular-route.min.js"></script>       
         <!-- Incluindo script padrao -->
         <script src="content/js/script.js"></script>
-        <script type="text/javascript" src="content/js/module/index/PesquisaBingoController.js"></script>
+        <script src="content/js/util/Message.js"></script>
+        <script type="text/javascript" src="content/js/module/index/Controller/PesquisaBingoController.js"></script>
+        <script type="text/javascript" src="content/js/module/Common/Service/BingoService.js"></script>
     </head>
     <body>
         <header>
@@ -26,6 +28,9 @@
             </nav>
         </header>
         <div class="container">
+            <div ng-repeat="alert in alerts" class="alert alert-{{ alert.type }}">
+                {{ alert.msg }}
+            </div>
             <div ng-view></div>
         </div>
     </body>

@@ -6,4 +6,29 @@
     <div class="pull-right">
         <a href="#cadastro" class="btn btn-success" title="Novo Jogo" ng-click="cadastrar()">Novo Jogo</a>
     </div>
+    <br />
+    <br />
+    <br />
+    <div ng-hide="booOcultaGrid">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Data de cadastro</th>
+                    <th>Número de bola sorteada</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bingo in arrBingo">
+                    <td>{{ bingo.ds_descricao }}</td>
+                    <td>{{ bingo.dat_cadastro }}</td>
+                    <td>{{ bingo.in_quantidade_bola_sorteada }}</td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

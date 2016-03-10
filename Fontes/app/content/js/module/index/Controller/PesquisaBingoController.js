@@ -1,7 +1,23 @@
 /* global bingoApp */
 
-bingoApp.controller('PesquisaBingoController', function ($scope, $location, BingoService, flashMessage) {
+bingoApp.controller('PesquisaBingoController', function ($scope, $location, BingoService, flashMessage, $routeParams) {
     $scope.numero = 50;
+    
+    $scope.init = function() {
+        $scope.getListagem();
+        if ($routeParams.id_bingo !== undefined) {
+            var callback = function (mixResult) {
+                if (mixResult.status === true) {
+                    var dataBingo = mixResult.data;
+                    $scope.id_bingo = dataBingo.id_bingo;
+                    $scope.descricao = dataBingo.ds_descricao;
+                    $scope.numero = dataBingo.in_quantidade_bola_sorteada;
+                }
+            }            
+            BingoService.getInformation(callback, $routeParams.id_bingo);
+        }
+    }    
+    
     $scope.salvar = function () {
         if (!$scope.cadastro.$valid) {
             return false;
@@ -9,10 +25,15 @@ bingoApp.controller('PesquisaBingoController', function ($scope, $location, Bing
         var callback = function (mixResult) {
             if (mixResult.status === true) {
                 flashMessage.success('Bingo cadastrado com sucesso.')
-                $location.path('/inicial');
+                $location.path('/');
             }
-        }
-        BingoService.salvar(callback, $scope.descricao, $scope.numero);
+        };
+        var arrData = {
+            ds_descricao: $scope.descricao,
+            in_quantidade_bola_sorteada : $scope.numero,
+            id_bingo : $scope.id_bingo            
+        };
+        BingoService.salvar(callback, arrData);
     };
     
     $scope.getListagem = function() {
@@ -27,6 +48,17 @@ bingoApp.controller('PesquisaBingoController', function ($scope, $location, Bing
         BingoService.getListagem(callback);
     };
     
+    $scope.excluir = function(bingo) {
+        if (confirm("Você deseja realmente excluir este bingo?")) {
+            var callback = function (mixResult) {
+                if (mixResult.status == true) {
+                    flashMessage.success('Bingo excluído com sucesso.');
+                    $scope.getListagem();
+                }
+            }            
+            BingoService.excluir(callback, bingo.id_bingo);
+        }
+    };    
     
-    $scope.getListagem();
+    $scope.init();
 });

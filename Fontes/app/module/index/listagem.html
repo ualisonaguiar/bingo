@@ -26,9 +26,12 @@
                     <td>{{ bingo.dat_cadastro }}</td>
                     <td>{{ bingo.in_quantidade_bola_sorteada }}</td>
                     <td>
+                        <a href="informacao/{{ bingo.id_bingo }}" style="color: #000;">
+                            <i class="fa fa-gamepad" title="Informações do Jogo" style="cursor: pointer"></i>
+                        </a>
                         <a href="editar/{{ bingo.id_bingo }}" style="color: #000;">
                             <i class="fa fa-edit" title="Editar" style="cursor: pointer"></i>
-                        </a>                        
+                        </a>
                         <i class="fa fa-trash-o" title="Excluir" style="cursor: pointer" ng-click="excluir(bingo)"></i>
                     </td>
                 </tr>

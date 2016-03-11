@@ -35,6 +35,6 @@
         <script src="js/route.js"></script>
         <script src="js/util/Message.js"></script>
         <script type="text/javascript" src="module/inicial/service/BingoService.js"></script>
-        <script type="text/javascript" src="module/inicial/controller/PesquisaBingoController.js"></script>        
+        <script type="text/javascript" src="module/inicial/controller/PesquisaBingoController.js"></script>
     </body>
 </html>

@@ -1,0 +1,24 @@
+<div ng-controller="PesquisaBingoController">
+    <div class="text-left">
+        <h2>Cadastro de Bingo</h2>
+        <p>Tela responsável pelo cadastramento de bingo</p>
+    </div>
+    <div>
+        <form name="cadastro" ng-submit="salvar()">
+            <input type="hidden" name="id_bingo" ng-bind="id_bingo">
+            <div class="form-group">
+                <label for="inputDescricao">Descrição</label>
+                <input name="descricao" ng-model="descricao" class="form-control" required="true" />
+            </div>
+            <div class="form-group">
+                <label for="inputDescricao">Informe quantidade de bolas a serem sortiada</label>
+                <input type="range" min="50" max="300" step="10" ng-model="numero" required="true">
+                <span id="range"> {{ numero }}</span>
+            </div>
+            <div class="pull-right">
+                <a href="/" class="btn btn-primary" title="Voltar"><i class="fa fa-home"></i>Voltar</a>
+                <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
